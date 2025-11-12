@@ -1,0 +1,43 @@
+<launch>
+    <arg name="init_x_"/>
+    <arg name="init_y_"/>
+    <arg name="init_z_"/>
+    <arg name="map_size_x_"/>
+    <arg name="map_size_y_"/>
+    <arg name="map_size_z_"/>
+    <arg name="c_num"/>
+    <arg name="p_num"/>
+    <arg name="min_dist"/>
+    <arg name="odom_topic"/>
+
+    <node pkg="poscmd_2_odom" name="poscmd_2_odom" type="poscmd_2_odom" output="screen">
+        <param name="init_x" value="$(arg init_x_)"/>
+        <param name="init_y" value="$(arg init_y_)"/>
+        <param name="init_z" value="$(arg init_z_)"/>
+        <remap from="~command" to="/position_cmd"/>
+        <remap from="~odometry" to="$(arg odom_topic)"/>
+    </node>
+
+    <node pkg="odom_visualization" name="odom_visualization" type="odom_visualization" output="screen">
+        <remap from="~odom" to="$(arg odom_topic)"/>
+        <param name="color/a" value="1.0"/>
+        <param name="color/r" value="0.0"/>
+        <param name="color/g" value="0.0"/>
+        <param name="color/b" value="0.0"/>
+        <param name="covariance_scale" value="100.0"/>
+        <param name="robot_scale" value="0.35"/>
+        <param name="tf45" value="false"/>
+    </node>
+    <node pkg="local_sensing_node" type="pcl_render_node" name="pcl_render_node" output="screen">
+        <rosparam command="load" file="$(find local_sensing_node)/params/camera.yaml" />
+        <param name="sensing_horizon" value="5.0" />
+        <param name="sensing_rate" value="30.0"/>
+        <param name="estimation_rate" value="30.0"/>
+        <param name="map/x_size" value="$(arg map_size_x_)"/>
+        <param name="map/y_size" value="$(arg map_size_y_)"/>
+        <param name="map/z_size" value="$(arg map_size_z_)"/>
+        <remap from="~global_map" to="/map_generator/global_cloud"/>
+        <remap from="~odometry" to="/$(arg odom_topic)"/>
+        <remap from="~pcl_render_node/cloud" to="/pcl_render_node/cloud"/>
+    </node>
+</launch>

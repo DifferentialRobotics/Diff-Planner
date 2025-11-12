@@ -1,0 +1,195 @@
+rosbag record --tcpnodelay /back_trigger \
+/broadcast_traj_from_planner \
+/broadcast_traj_to_planner \
+/clicked_point \
+/debugPx4ctrl \
+/diagnostics \
+/diff_planner_node/a_star_list \
+/diff_planner_node/failed_list \
+/diff_planner_node/global_list \
+/diff_planner_node/global_list_array \
+/diff_planner_node/goal_point \
+/diff_planner_node/goal_point_array \
+/diff_planner_node/grid_map/occupancy \
+/diff_planner_node/grid_map/occupancy_inflate \
+/diff_planner_node/init_list \
+/diff_planner_node/init_list_array \
+/diff_planner_node/mandatory_stop \
+/diff_planner_node/optimal_list \
+/diff_planner_node/optimal_list_path \
+/diff_planner_node/planning/data_display \
+/diff_planner_node/planning/heartbeat \
+/diff_planner_node/planning/trajectory \
+/drone_0_ego_planner_node/failed_list \
+/drone_0_ego_planner_node/failed_list_array \
+/drone_0_ego_planner_node/optimal_list \
+/drone_0_ego_planner_node/optimal_list_array \
+/ekf/acc_filtered \
+/ekf/ahead_ekf_odom \
+/ekf/cam_ekf_odom \
+/ekf/ekf_odom \
+/ekf/gt_ \
+/goal \
+/goal_with_id \
+/ground_height_measurement \
+/initialpose \
+/laserMapping/odometry \
+/laserMapping/path \
+/livox/imu \
+/livox/lidar \
+/mavlink/from \
+/mavlink/gcs_ip \
+/mavlink/to \
+/mavros/actuator_control \
+/mavros/adsb/send \
+/mavros/adsb/vehicle \
+/mavros/altitude \
+/mavros/battery \
+/mavros/cam_imu_sync/cam_imu_stamp \
+/mavros/camera/image_captured \
+/mavros/cellular_status/status \
+/mavros/companion_process/status \
+/mavros/debug_value/debug \
+/mavros/debug_value/debug_float_array \
+/mavros/debug_value/debug_vector \
+/mavros/debug_value/named_value_float \
+/mavros/debug_value/named_value_int \
+/mavros/debug_value/send \
+/mavros/esc_info \
+/mavros/esc_status \
+/mavros/esc_telemetry \
+/mavros/estimator_status \
+/mavros/extended_state \
+/mavros/fake_gps/mocap/tf \
+/mavros/geofence/waypoints \
+/mavros/global_position/compass_hdg \
+/mavros/global_position/global \
+/mavros/global_position/gp_lp_offset \
+/mavros/global_position/gp_origin \
+/mavros/global_position/local \
+/mavros/global_position/raw/fix \
+/mavros/global_position/raw/gps_vel \
+/mavros/global_position/raw/satellites \
+/mavros/global_position/rel_alt \
+/mavros/global_position/set_gp_origin \
+/mavros/gps_input/gps_input \
+/mavros/gps_rtk/rtk_baseline \
+/mavros/gps_rtk/send_rtcm \
+/mavros/gpsstatus/gps1/raw \
+/mavros/gpsstatus/gps1/rtk \
+/mavros/gpsstatus/gps2/raw \
+/mavros/gpsstatus/gps2/rtk \
+/mavros/hil/actuator_controls \
+/mavros/hil/controls \
+/mavros/hil/gps \
+/mavros/hil/imu_ned \
+/mavros/hil/optical_flow \
+/mavros/hil/rc_inputs \
+/mavros/hil/state \
+/mavros/home_position/home \
+/mavros/home_position/set \
+/mavros/imu/data \
+/mavros/imu/data_raw \
+/mavros/imu/diff_pressure \
+/mavros/imu/mag \
+/mavros/imu/static_pressure \
+/mavros/imu/temperature_baro \
+/mavros/imu/temperature_imu \
+/mavros/landing_target/lt_marker \
+/mavros/landing_target/pose \
+/mavros/landing_target/pose_in \
+/mavros/local_position/accel \
+/mavros/local_position/odom \
+/mavros/local_position/pose \
+/mavros/local_position/pose_cov \
+/mavros/local_position/velocity_body \
+/mavros/local_position/velocity_body_cov \
+/mavros/local_position/velocity_local \
+/mavros/log_transfer/raw/log_data \
+/mavros/log_transfer/raw/log_entry  \
+/mavros/mag_calibration/report \
+/mavros/mag_calibration/status \
+/mavros/manual_control/control \
+/mavros/manual_control/send \
+/mavros/mission/reached \
+/mavros/mission/waypoints \
+/mavros/mocap/pose \
+/mavros/mount_control/command \
+/mavros/mount_control/orientation \
+/mavros/mount_control/status \
+/mavros/nav_controller_output \
+/mavros/obstacle/send \
+/mavros/odometry/in \
+/mavros/odometry/out \
+/mavros/onboard_computer/status \
+/mavros/param/param_value \
+/mavros/play_tune \
+/mavros/px4flow/ground_distance \
+/mavros/px4flow/raw/optical_flow_rad\
+/mavros/px4flow/raw/send \
+/mavros/px4flow/temperature \
+/mavros/radio_status \
+/mavros/rallypoint/waypoints \
+/mavros/rc/in \
+/mavros/rc/out \
+/mavros/rc/override \
+/mavros/setpoint_accel/accel \
+/mavros/setpoint_attitude/cmd_vel \
+/mavros/setpoint_attitude/thrust \
+/mavros/setpoint_position/global \
+/mavros/setpoint_position/global_to_local \
+/mavros/setpoint_position/local \
+/mavros/setpoint_raw/attitude \
+/mavros/setpoint_raw/global \
+/mavros/setpoint_raw/local \
+/mavros/setpoint_raw/target_attitude \
+/mavros/setpoint_raw/target_global \
+/mavros/setpoint_raw/target_local \
+/mavros/setpoint_trajectory/desired \
+/mavros/setpoint_trajectory/local \
+/mavros/setpoint_velocity/cmd_vel \
+/mavros/setpoint_velocity/cmd_vel_unstamped \
+/mavros/state \
+/mavros/statustext/recv \
+/mavros/statustext/send \
+/mavros/sys_status \
+/mavros/target_actuator_control \
+/mavros/terrain/report \
+/mavros/time_reference \
+/mavros/timesync_status \
+/mavros/trajectory/desired \
+/mavros/trajectory/generated \
+/mavros/trajectory/path \
+/mavros/tunnel/in \
+/mavros/tunnel/out \
+/mavros/vfr_hud \
+/mavros/vision_pose/pose \
+/mavros/vision_pose/pose_cov \
+/mavros/vision_speed/speed_twist_cov \
+/mavros/wind_estimation \
+/move_base_simple/goal \
+/odom_visualization/cmd \
+/odom_visualization/covariance \
+/odom_visualization/covariance_velocity \
+/odom_visualization/height\
+/odom_visualization/path\
+/odom_visualization/pose\
+/odom_visualization/robot\
+/odom_visualization/robot_array\
+/odom_visualization/sensor\
+/odom_visualization/trajectory\
+/odom_visualization/velocity\
+/planning/trajectory\
+/planning/yaw\
+/px4ctrl/takeoff_land \
+/rosout \
+/rosout_agg\
+/setpoints_cmd\
+/tf \
+/tf_static\
+/traj_start_trigger\
+/try \
+/usb_cam/image_raw/mouse_click \
+/vins_estimator/extrinsic \
+/vins_estimator/path 
+

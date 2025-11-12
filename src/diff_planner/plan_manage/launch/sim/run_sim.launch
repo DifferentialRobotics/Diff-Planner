@@ -1,0 +1,87 @@
+<launch>
+    <arg name="local_map_size_x_" value="5.5"/>
+    <arg name="local_map_size_y_" value="5.5"/>
+    <arg name="local_map_size_z_" value="2.0"/>
+    <arg name="init_x" value="-15.0"/>
+    <arg name="init_y" value="0.0"/>
+    <arg name="init_z" value="1.0"/>
+    <arg name="odom_topic" value="/visual_slam/odom" />
+
+    <!-- map -->
+    <node pkg ="map_generator" name ="random_forest" type ="random_forest" output = "screen">
+        <param name="map/x_size" value="26" />
+        <param name="map/y_size" value="20" />
+        <param name="map/z_size" value="3" />
+        <param name="map/resolution" value="0.1"/>
+        <param name="ObstacleShape/seed" value="1"/>
+        <param name="map/obs_num" value="100"/>
+        <param name="ObstacleShape/lower_rad" value="0.5"/>
+        <param name="ObstacleShape/upper_rad" value="0.7"/>
+        <param name="ObstacleShape/lower_hei" value="0.0"/>
+        <param name="ObstacleShape/upper_hei" value="3.0"/>
+        <param name="map/circle_num" value="100"/>
+        <param name="ObstacleShape/radius_l" value="0.7"/>
+        <param name="ObstacleShape/radius_h" value="0.5"/>
+        <param name="ObstacleShape/z_l" value="0.7"/>
+        <param name="ObstacleShape/z_h" value="0.8"/>
+        <param name="ObstacleShape/theta" value="0.5"/>
+        <param name="pub_rate" value="1.0"/>
+        <param name="min_distance" value="0.8"/>
+    </node>
+
+    <!-- size of map, change the size inflate x, y, z according to your application -->
+    <!-- topic of your odometry such as VIO or LIO -->
+    <!-- main algorithm params -->
+    <include file="$(find diff_planner)/launch/include/advanced_param.xml">
+        <arg name="odom_topic" value="$(arg odom_topic)"/>
+        <!-- camera pose: transform of camera frame in the world frame -->
+        <!-- depth topic: depth image, 640x480 by default -->
+        <!-- don't set cloud_topic if you already set these ones! -->
+        <arg name="camera_pose_topic" value="pcl_render_node/camera_pose"/>
+        <arg name="depth_topic" value="pcl_render_node/depth"/>
+        <!-- topic of point cloud measurement, such as from LIDAR  -->
+        <!-- don't set camera pose and depth, if you already set this one! -->
+        <arg name="cloud_topic" value="pcl_render_node/cloud"/>
+        <!-- intrinsic params of the depth camera -->
+        <arg name="cx" value="321.04638671875"/>
+        <arg name="cy" value="243.44969177246094"/>
+        <arg name="fx" value="387.229248046875"/>
+        <arg name="fy" value="387.229248046875"/>
+        <!-- maximum velocity, acceleration and jerk the drone will reach -->
+        <arg name="max_vel" value="2.0" />
+        <arg name="max_acc" value="3.0" />
+        <!--always set to 1.5 times grater than sensing horizen-->
+        <arg name="planning_horizon" value="7.5" />
+        <!-- map parameters  -->
+        <arg name="local_map_size_x_" value="$(arg local_map_size_x_)"/>
+        <arg name="local_map_size_y_" value="$(arg local_map_size_y_)"/>
+        <arg name="local_map_size_z_" value="$(arg local_map_size_z_)"/>
+        <arg name="virtual_ceil" value="3.0"/>
+        <arg name="virtual_ground" value="0.1"/>
+        <arg name="map_resolution" value="0.10"/>
+        <arg name="inflation_size" value="0.1"/>
+    </include>
+
+    <!-- trajectory server -->
+    <node pkg="diff_planner" name="traj_server" type="traj_server" output="screen">
+        <remap from="position_cmd" to="/position_cmd"/>
+        <remap from="~planning/trajectory" to="/diff_planner_node/planning/trajectory"/>
+        <remap from="~planning/yaw" to="/planning/yaw"/>
+        <remap from="~heartbeat" to="/diff_planner_node/planning/heartbeat"/>
+        <param name="traj_server/time_forward" value="1.0" type="double"/>
+    </node>
+
+    <!-- use simulator -->
+    <include file="$(find diff_planner)/launch/include/simulator.xml">
+        <arg name="map_size_x_" value="200"/>
+        <arg name="map_size_y_" value="200"/>
+        <arg name="map_size_z_" value="3"/>
+        <arg name="init_x_" value="$(arg init_x)"/>
+        <arg name="init_y_" value="$(arg init_y)"/>
+        <arg name="init_z_" value="$(arg init_z)"/>
+        <arg name="odom_topic" value="$(arg odom_topic)" />
+    </include>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find diff_planner)/launch/include/sim.rviz" required="true" />
+</launch>
+

@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find diff_planner)/launch/sim/run_sim.launch" />
+  <include file="$(find multipoint)/launch/multipointplan_sim.launch" />
+</launch>

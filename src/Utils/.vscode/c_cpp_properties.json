@@ -1,0 +1,35 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/nv/main_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/nv/main_ws/src/planner/plan_manage/include/**",
+        "/home/nv/main_ws/src/planner/drone_detect/include/**",
+        "/home/nv/main_ws/src/uav_simulator/mockamap/include/**",
+        "/home/nv/main_ws/src/planner/path_searching/include/**",
+        "/home/nv/main_ws/src/planner/plan_env/include/**",
+        "/home/nv/main_ws/src/Utils/pose_utils/include/**",
+        "/home/nv/main_ws/src/Utils/quadrotor_msgs/include/**",
+        "/home/nv/main_ws/src/Utils/selected_points_publisher/include/**",
+        "/home/nv/main_ws/src/uav_simulator/so3_control/include/**",
+        "/home/nv/main_ws/src/uav_simulator/so3_quadrotor_simulator/include/**",
+        "/home/nv/main_ws/src/planner/swarm_bridge/include/**",
+        "/home/nv/main_ws/src/planner/traj_opt/include/**",
+        "/home/nv/main_ws/src/planner/traj_utils/include/**",
+        "/home/nv/main_ws/src/Utils/uav_utils/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-arm64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

@@ -1,0 +1,53 @@
+<launch>
+    <arg name="odom_topic" value="/vins/imu_propagate"/>
+    <include file="$(find diff_planner)/launch/include/advanced_param.xml">
+        <arg name="odom_topic" value="$(arg odom_topic)"/>
+        <!-- camera pose: transform of camera frame in the world frame -->
+        <!-- depth topic: depth image, 640x480 by default -->
+        <!-- don't set cloud_topic if you already set these ones! -->
+        <arg name="camera_pose_topic" value="no_use0"/>
+        <arg name="depth_topic" value="/camera/depth/image_rect_raw"/>
+        <!-- topic of point cloud measurement, such as from LIDAR  -->
+        <!-- don't set camera pose and depth, if you already set this one! -->
+        <arg name="cloud_topic" value="no_use2"/>
+        <!-- intrinsic params of the depth camera -->
+        <arg name="cx" value="323.08837890625"/>
+        <arg name="cy" value="235.89132690429688"/>
+        <arg name="fx" value="386.4523010253906"/>
+        <arg name="fy" value="386.4523010253906"/>
+        <!-- maximum velocity, acceleration and jerk the drone will reach -->
+        <arg name="max_vel" value="2.0" />
+        <arg name="max_acc" value="3.0" />
+        <!--always set to 1.5 times grater than sensing horizen-->
+        <arg name="planning_horizon" value="7.5" />
+        <!-- map parameters  -->
+        <arg name="local_map_size_x_" value="5.5"/>
+        <arg name="local_map_size_y_" value="5.5"/>
+        <arg name="local_map_size_z_" value="2.0"/>
+        <arg name="virtual_ceil" value="2.0"/>
+        <arg name="virtual_ground" value="0.1"/>
+        <arg name="map_resolution" value="0.15"/>
+        <arg name="inflation_size" value="0.3"/>
+    </include>
+
+    <node pkg="diff_planner" name="traj_server" type="traj_server" output="screen">
+        <remap from="position_cmd" to="/setpoints_cmd"/>
+        <remap from="~planning/trajectory" to="/planning/trajectory"/>
+        <remap from="~planning/yaw" to="/diff_planner_node/planning/yaw"/>
+        <remap from="~heartbeat" to="/diff_planner_node/planning/heartbeat"/>
+        <param name="traj_server/time_forward" value="1.0" type="double"/>
+    </node>
+
+  <node pkg="odom_visualization" name="odom_visualization" type="odom_visualization" output="screen">
+		<remap from="~odom" to="$(arg odom_topic)" />
+        <param name="color/a" value="1.0"/>    
+        <param name="color/r" value="0.0"/>        
+        <param name="color/g" value="0.0"/>        
+        <param name="color/b" value="1.0"/>       
+        <param name="covariance_scale" value="100.0"/>       
+        <param name="robot_scale" value="1.0"/>
+  </node>
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find diff_planner)/launch/include/exp_vio.rviz" required="true" />
+</launch>
+

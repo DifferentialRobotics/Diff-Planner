@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find px4ctrl)/launch/run_ctrl_lio.launch" />
+  <include file="$(find diff_planner)/launch/exp/run_exp_lio.launch" />
+  <include file="$(find multipoint)/launch/multipointplan_exp_lio.launch" />
+</launch>

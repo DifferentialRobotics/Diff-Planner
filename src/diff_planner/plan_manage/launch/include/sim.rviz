@@ -1,0 +1,486 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Status1
+        - /simulation_map1/Autocompute Value Bounds1
+        - /drone01
+        - /drone01/Planning1
+        - /drone01/Planning1/drone_path1/Offset1
+        - /drone01/Simulation1/robot1
+        - /drone01/Simulation1/depth1
+        - /Odometry1/Shape1
+      Splitter Ratio: 0.4771505296230316
+    Tree Height: 443
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Publish Point1
+      - /3D Nav Goal1
+    Name: Tool Properties
+    Splitter Ratio: 0.5886790156364441
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Name: Time
+    SyncMode: 0
+    SyncSource: map inflate
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 1
+      Class: rviz/Axes
+      Enabled: true
+      Length: 1
+      Name: Axes
+      Radius: 0.10000000149011612
+      Reference Frame: <Fixed Frame>
+      Show Trail: false
+      Value: true
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 1000
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 0.10000000149011612
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 2.9000000953674316
+        Min Value: 0
+        Value: false
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 178; 178; 206
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: simulation_map
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: false
+      Size (Pixels): 3
+      Size (m): 0.10000000149011612
+      Style: Boxes
+      Topic: /map_generator/global_cloud
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /diff_planner_node/goal_point
+              Name: goal_point
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /diff_planner_node/global_list
+              Name: global_path
+              Namespaces:
+                "": true
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /diff_planner_node/optimal_list
+              Name: optimal_traj
+              Namespaces:
+                "": true
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /diff_planner_node/failed_list
+              Name: FailedList
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: false
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /diff_planner_node/a_star_list
+              Name: AStar
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: false
+            - Class: rviz/Marker
+              Enabled: false
+              Marker Topic: /diff_planner_node/init_list
+              Name: InitTraj
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: false
+            - Alpha: 1
+              Buffer Length: 1
+              Class: rviz/Path
+              Color: 29; 108; 212
+              Enabled: true
+              Head Diameter: 0.30000001192092896
+              Head Length: 0.20000000298023224
+              Length: 0.30000001192092896
+              Line Style: Billboards
+              Line Width: 0.10000000149011612
+              Name: drone_path
+              Offset:
+                X: 0
+                Y: 0
+                Z: 0
+              Pose Color: 255; 85; 255
+              Pose Style: None
+              Queue Size: 10
+              Radius: 0.029999999329447746
+              Shaft Diameter: 0.10000000149011612
+              Shaft Length: 0.10000000149011612
+              Topic: /odom_visualization/path
+              Unreliable: false
+              Value: true
+          Enabled: true
+          Name: Planning
+        - Class: rviz/Group
+          Displays:
+            - Alpha: 1
+              Autocompute Intensity Bounds: true
+              Autocompute Value Bounds:
+                Max Value: 2.75
+                Min Value: 0.15000000596046448
+                Value: true
+              Axis: Z
+              Channel Name: intensity
+              Class: rviz/PointCloud2
+              Color: 29; 108; 212
+              Color Transformer: AxisColor
+              Decay Time: 0
+              Enabled: true
+              Invert Rainbow: false
+              Max Color: 255; 255; 255
+              Min Color: 0; 0; 0
+              Name: map inflate
+              Position Transformer: XYZ
+              Queue Size: 10
+              Selectable: false
+              Size (Pixels): 3
+              Size (m): 0.10000000149011612
+              Style: Boxes
+              Topic: /diff_planner_node/grid_map/occupancy_inflate
+              Unreliable: false
+              Use Fixed Frame: true
+              Use rainbow: true
+              Value: true
+          Enabled: true
+          Name: Mapping
+        - Class: rviz/Group
+          Displays:
+            - Class: rviz/Marker
+              Enabled: true
+              Marker Topic: /drone_0_odom_visualization/robot
+              Name: robot
+              Namespaces:
+                {}
+              Queue Size: 100
+              Value: true
+            - Class: rviz/Image
+              Enabled: false
+              Image Topic: /drone_0_pcl_render_node/colordepth
+              Max Value: 1
+              Median window: 5
+              Min Value: 0
+              Name: depth
+              Normalize Range: true
+              Queue Size: 2
+              Transport Hint: raw
+              Unreliable: false
+              Value: false
+          Enabled: true
+          Name: Simulation
+      Enabled: true
+      Name: drone0
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /new_goals_arrow
+      Name: NewGoals
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /odom_visualization/robot
+      Name: Marker
+      Namespaces:
+        drone: true
+      Queue Size: 100
+      Value: true
+    - Angle Tolerance: 0.10000000149011612
+      Class: rviz/Odometry
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: true
+        Position:
+          Alpha: 0.30000001192092896
+          Color: 204; 51; 204
+          Scale: 1
+          Value: true
+        Value: true
+      Enabled: false
+      Keep: 1
+      Name: Odometry
+      Position Tolerance: 0.009999999776482582
+      Queue Size: 10
+      Shape:
+        Alpha: 1
+        Axes Length: 1
+        Axes Radius: 0.10000000149011612
+        Color: 255; 25; 0
+        Head Length: 0.30000001192092896
+        Head Radius: 0.10000000149011612
+        Shaft Length: 1
+        Shaft Radius: 0.05000000074505806
+        Value: Axes
+      Topic: /visual_slam/odom
+      Unreliable: false
+      Value: false
+  Enabled: true
+  Global Options:
+    Background Color: 255; 255; 255
+    Default Light: true
+    Fixed Frame: world
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Theta std deviation: 0.2617993950843811
+      Topic: /initialpose
+      X std deviation: 0.5
+      Y std deviation: 0.5
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+    - Class: rviz_plugins/Goal3DTool
+      Topic: /goal
+    - Class: rviz_plugin_selected_points_publisher/SelectedPointsPublisher
+  Value: true
+  Views:
+    Current:
+      Class: rviz/ThirdPersonFollower
+      Distance: 27.86368751525879
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Field of View: 0.7853981852531433
+      Focal Point:
+        X: 0.790239691734314
+        Y: -5.996996879577637
+        Z: -2.9070444725221023e-05
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 1.5697963237762451
+      Target Frame: <Fixed Frame>
+      Yaw: 4.714622974395752
+    Saved:
+      - Class: rviz/FPS
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Invert Z Axis: false
+        Name: FPS
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.4000000059604645
+        Position:
+          X: -11
+          Y: 0
+          Z: 8
+        Roll: 0
+        Target Frame: my_view
+        Yaw: 0
+      - Class: rviz/FPS
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Invert Z Axis: false
+        Name: FPS
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.5
+        Position:
+          X: -10
+          Y: 0
+          Z: 10
+        Roll: 0
+        Target Frame: my_view
+        Yaw: 0
+      - Class: rviz/FPS
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Invert Z Axis: false
+        Name: FPS
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.6000000238418579
+        Position:
+          X: -10
+          Y: 0
+          Z: 10
+        Roll: 0
+        Target Frame: my_view
+        Yaw: 0
+      - Class: rviz/Orbit
+        Distance: 15.70908260345459
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Field of View: 0.7853981852531433
+        Focal Point:
+          X: 0.6264700293540955
+          Y: -0.032951872795820236
+          Z: -0.28275611996650696
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: 钻洞对比
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.44479724764823914
+        Target Frame: my_view
+        Yaw: 3.140383720397949
+      - Class: rviz/Orbit
+        Distance: 50.68461608886719
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Field of View: 0.7853981852531433
+        Focal Point:
+          X: -0.4029660224914551
+          Y: -0.001756848767399788
+          Z: -0.28272488713264465
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: DenseObs
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 1.5697963237762451
+        Target Frame: my_view
+        Yaw: 4.71238899230957
+      - Class: rviz/ThirdPersonFollower
+        Distance: 34.50396728515625
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Field of View: 0.7853981852531433
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: -12
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: Ring
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.7447969317436218
+        Target Frame: my_view
+        Yaw: 6.072401523590088
+      - Class: rviz/ThirdPersonFollower
+        Distance: 43.80332946777344
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Field of View: 0.7853981852531433
+        Focal Point:
+          X: 4.378617286682129
+          Y: -1.5167917013168335
+          Z: -11.999991416931152
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: ThirdPersonFollower
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.8597965836524963
+        Target Frame: my_view
+        Yaw: 5.702403545379639
+Window Geometry:
+  Displays:
+    collapsed: true
+  Height: 1403
+  Hide Left Dock: true
+  Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000019b00000525fc0200000039fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073000000003b00000344000000c700fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007300000003850000005c0000005c00fffffffb0000000a0056006900650077007300000003e700000179000000a000fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00430061006d00650072006100000001d1000000b50000000000000000fb0000000a0049006d00610067006502000001a2000001e1000000f8000000b5fb0000000a006400650070007400680000000265000000c00000001600fffffffb0000000a0049006d00610067006501000003f30000015b0000000000000000fb0000000a0049006d00610067006501000003f4000001190000000000000000fb0000000a0064006500700074006800000004a2000000ac0000000000000000fb0000000a006400650070007400680000000346000002180000000000000000fb0000000a0064006500700074006800000003e20000017c0000000000000000fb0000000a006400650070007400680000000481000000cd0000000000000000fb0000000a006400650070007400680000000429000001250000000000000000fb0000000a0064006500700074006800000003b7000000af0000000000000000fb0000000a0064006500700074006800000003d5000000b50000000000000000fb0000000a006400650070007400680000000444000001260000000000000000fb0000000a00640065007000740068000000041f0000014b0000000000000000fb0000000a0064006500700074006800000001b8000000160000000000000000fb0000000a0064006500700074006800000001c1000000160000000000000000fb0000000a0064006500700074006800000004b1000000550000000000000000fb0000000a006400650070007400680000000505000000650000000000000000fb0000000a006400650070007400680000000502000000680000000000000000fb0000000a0064006500700074006800000004f9000000710000000000000000fb0000000a0064006500700074006800000003dd0000018d0000000000000000fb0000000a0064006500700074006800000004de0000008c0000000000000000fb0000000a0064006500700074006800000004cc0000009e0000000000000000fb0000000a00640065007000740068000000048a000000c40000000000000000fb0000000a0064006500700074006800000004aa000000c00000000000000000fb0000000a0049006d00610067006500000003fa000001540000000000000000fb0000000a0049006d00610067006501000002e1000002890000000000000000fb0000000a006400650070007400680000000495000000d50000000000000000fb0000000a0064006500700074006800000001b60000001b0000000000000000fb0000000a0064006500700074006800000001c10000002f0000000000000000fb0000000a0064006500700074006800000001d3000000300000000000000000fb0000000a0064006500700074006800000001e6000000320000000000000000fb0000000a0064006500700074006800000004dc0000008e0000000000000000fb0000000a0064006500700074006800000004f4000000760000000000000000fb0000000a0064006500700074006800000004f2000000780000000000000000fb0000000a006400650070007400680000000503000000670000000000000000fb0000000a006400650070007400680000000509000000610000000000000000fb0000000a006400650070007400680000000511000000590000000000000000fb0000000a006400650070007400680000000517000000530000000000000000fb0000000a00640065007000740068000000051d0000004d0000000000000000fb0000000a00640065007000740068000000051d0000004d0000000000000000fb0000000a006400650070007400680000000526000000440000000000000000fb0000000a00640065007000740068000000052b0000003f0000000000000000fb0000000a00640065007000740068000000052b0000003f0000000000000000fb0000000a00640065007000740068000000052f0000003b0000000000000000fb0000000a006400650070007400680000000532000000380000000000000000fb0000000a006400650070007400680000000536000000340000000000000000fb0000000a00640065007000740068000000046b000000d80000000000000000000000010000010f00000385fc0200000002fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000006100000003bfc0100000002fb0000000800540069006d00650000000000000006100000035c00fffffffb0000000800540069006d0065010000000000000450000000000000000000000a000000052500000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: true
+  Views:
+    collapsed: true
+  Width: 2560
+  X: 0
+  Y: 0
+  depth:
+    collapsed: false

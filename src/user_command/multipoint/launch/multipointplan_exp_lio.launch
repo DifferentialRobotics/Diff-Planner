@@ -1,0 +1,16 @@
+<launch>
+    <arg name="odom_topic" value="/ekf/ekf_odom" />
+    <arg name="next_distance" value="0.7" />
+    <arg name="fligt_type" value="1" />   <!-- 1到4代表4种控制模式 -->
+    <arg name="start_plan" value="1" />   <!-- 1表示启动多点规划，0表示不启动 -->
+    <arg name="back_plan" value="1" />   <!-- 1表示启动回城多点规划，0表示不启动 -->
+   
+    <node pkg="multipoint" name="multipointplan" type="multipointplan" output="screen">
+        <remap from="odom_topic" to="$(arg odom_topic)"/>
+        <param name="yaml_path" value="$(find multipoint)/config/points.yaml" />
+        <param name="next_distance" value="$(arg next_distance)"/>
+        <param name="fligt_type" value="$(arg fligt_type)"/>
+        <param name="start_plan" value="$(arg start_plan)"/>
+        <param name="back_plan" value="$(arg back_plan)"/>
+    </node>
+</launch>
