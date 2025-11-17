@@ -88,10 +88,10 @@ void readpyt(string file_path)
     }
     else if(fligt_type == FLIGT_TYPE::PP_YAW || fligt_type == FLIGT_TYPE::PP_TIME){
         if(fligt_type == FLIGT_TYPE::PP_YAW){
-            pyt_type = pyt_yaml["test2"];
+            pyt_type = pyt_yaml["test3"];
         }
         else{
-            pyt_type = pyt_yaml["test3"];
+            pyt_type = pyt_yaml["test2"];
         }
         size_arr = 4;
     }
