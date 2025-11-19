@@ -32,7 +32,7 @@
 
     <node pkg="diff_planner" name="traj_server" type="traj_server" output="screen">
         <remap from="position_cmd" to="/setpoints_cmd"/>
-        <remap from="~planning/trajectory" to="/planning/trajectory"/>
+        <remap from="~planning/trajectory" to="/diff_planner_node/planning/trajectory"/>
         <remap from="~planning/yaw" to="/diff_planner_node/planning/yaw"/>
         <remap from="~heartbeat" to="/diff_planner_node/planning/heartbeat"/>
         <param name="traj_server/time_forward" value="1.0" type="double"/>
