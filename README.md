@@ -38,10 +38,13 @@
 本项目基于ROS1开发，请根据所使用ubuntu版本安装对应版本ROS1，支持ubuntu16.04, 18.04和20.04。
 
 ## 项目拉取
+- `px4ctrl` 模块依赖 `Utils` 模块编译，所以需要将 `Utils` 模块一并拉下
+
 ```bash
 mkdir -p Diff-Navigation/src
 cd Diff-Navigation/src
-git clone https://github.com/DifferentialRobotics/Diff-Planner.git
+git clone https://github.com/DifferentialRobotics/Diff-Planner.git  # 拉取 Diff-Planner 模块
+git clone https://github.com/DifferentialRobotics/Utils.git  # 拉取 Utils 模块
 
 cd ..
 catkin_make
@@ -91,8 +94,6 @@ cd Diff-Navigation  #新建终端
 ## 致谢与声明
 本项目在开发过程中参考并使用了以下开源项目：
 - **[EGO-Planner-v2](https://github.com/ZJU-FAST-Lab/EGO-Planner-v2)**，特此感谢浙江大学 **FAST-Lab** 团队的开源贡献。
-- **[Faster-LIO](https://github.com/gaoxiang12/faster-lio)** ，特此感谢项目作者团队的开源贡献。
-- **[livox_ros_driver2](https://github.com/Livox-SDK/livox_ros_driver2)** 驱动，特此感谢项目作者团队的开源贡献。
 
 相关代码均严格遵循原项目的开源许可协议使用，用户在使用本项目时，请务必遵守相应的许可证条款。
 
