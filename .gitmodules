@@ -1,3 +1,0 @@
-[submodule "src/realflight_modules/faster-lio"]
-	path = src/realflight_modules/faster-lio
-	url = https://github.com/DifferentialRobotics/faster-lio.git
